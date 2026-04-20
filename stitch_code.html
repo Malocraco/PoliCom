@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#663100",
+                        "on-primary-fixed": "#001b3f",
+                        "tertiary-container": "#002805",
+                        "error": "#ba1a1a",
+                        "outline": "#747780",
+                        "on-secondary-fixed": "#301400",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-tertiary-container": "#4a994a",
+                        "surface-bright": "#f9f9fd",
+                        "primary-fixed": "#d7e2ff",
+                        "inverse-surface": "#2e3133",
+                        "surface-container-low": "#f3f3f7",
+                        "on-surface-variant": "#44474f",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#465e8b",
+                        "surface-dim": "#d9dadd",
+                        "outline-variant": "#c4c6d0",
+                        "on-primary": "#ffffff",
+                        "surface": "#f9f9fd",
+                        "secondary-container": "#fc8f34",
+                        "primary": "#000a1f",
+                        "inverse-primary": "#aec7fa",
+                        "secondary-fixed-dim": "#ffb783",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#ffdcc5",
+                        "on-secondary-fixed-variant": "#713700",
+                        "inverse-on-surface": "#f0f0f4",
+                        "tertiary": "#000e01",
+                        "primary-container": "#00204a",
+                        "secondary": "#944a00",
+                        "on-primary-fixed-variant": "#2e4772",
+                        "tertiary-fixed": "#a3f69c",
+                        "on-tertiary-fixed": "#002204",
+                        "background": "#f9f9fd",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e6",
+                        "on-primary-container": "#7189b8",
+                        "tertiary-fixed-dim": "#88d982",
+                        "surface-container": "#edeef1",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#aec7fa",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e2e2e6",
+                        "surface-container-high": "#e7e8eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg text-blue-900 dark:text-blue-100 docked full-width top-0 sticky z-40 shadow-sm shadow-blue-900/5 flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-6">
+<span class="text-xl font-extrabold text-[#00204a] dark:text-blue-400 tracking-tighter">Policomunicaciones</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#00204a] dark:text-blue-400 font-bold border-b-2 border-[#00204a] py-1 text-sm" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors py-1 text-sm" href="#">Campaigns</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors py-1 text-sm" href="#">Requests</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container text-sm w-64 rounded-lg" placeholder="Search requests..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-slate-100 p-2 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-slate-100 p-2 rounded-full transition-colors">help_outline</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-slate-100 p-2 rounded-full transition-colors">settings</button>
+<img alt="Administrator profile picture" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Close-up professional portrait of a confident male administrator in a clean office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsVmyZwsdDRnRnzc_1T7f9doyjD8LN5yrNQ2rbdjb1WVSSkxt_YaQm74NCU1vc-coeEJB-TbC9XyFC8QVL7y04lNNc-wR9oQ7y3KWEQEHhmIkkikignQpCLzSeS3MPvw1I98ireAeK4RYjIXwpvmGVduvaUM3C2HGKPtsIaCo1af4dsWMtVuQ2svJKEP1y6PLKet1cZafznQHm4zg5qSmfnM4DHEX35pWlWdh2cQmU3BkR76bC4Xfw_LnMNOGaS0YOoJrrzsv1ea-l"/>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-16 bg-slate-50 dark:bg-slate-950 flex flex-col hidden lg:flex border-r border-outline-variant/10">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-[#00204a] dark:text-white uppercase tracking-widest leading-none">Manager</h2>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Institutional Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-[#00204a] dark:hover:text-white hover:translate-x-1 transition-transform duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-[#00204a] dark:text-white font-bold shadow-sm rounded-r-full text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span> Campaigns
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-[#00204a] dark:hover:text-white hover:translate-x-1 transition-transform duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">description</span> Requests
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-[#00204a] dark:hover:text-white hover:translate-x-1 transition-transform duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">leaderboard</span> Analytics
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-[#00204a] dark:hover:text-white hover:translate-x-1 transition-transform duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Archives
+                    </a>
+</nav>
+<button class="mt-8 w-full py-3 bg-primary-container text-on-primary text-sm font-bold tracking-wide rounded hover:bg-primary-container/90 transition-all active:scale-[0.98]">
+                    New Request
+                </button>
+</div>
+<div class="mt-auto px-6 py-6 border-t border-outline-variant/10">
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-[#00204a] transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-lg">contact_support</span> Support
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:opacity-80 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-lg">logout</span> Sign Out
+                    </a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 lg:ml-64 p-8 pt-12">
+<!-- Header Section -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs font-bold text-on-primary-container mb-2 uppercase tracking-widest">
+<span>Portal Institucional</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>Campaign Tracking</span>
+</nav>
+<div class="flex items-center gap-4">
+<h1 class="text-4xl font-black text-primary-container tracking-tight">SOL-202611-0010</h1>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full uppercase tracking-widest">In Review</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-bold border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors">Export Report</button>
+<button class="px-4 py-2 text-sm font-bold bg-primary-container text-on-primary hover:bg-primary-container/90 shadow-lg shadow-primary-container/20 transition-all">Quick Edit</button>
+</div>
+</header>
+<!-- Visual Timeline -->
+<section class="mb-12">
+<div class="relative flex justify-between items-center max-w-4xl mx-auto px-4">
+<!-- Connector Line Base -->
+<div class="absolute top-1/2 left-0 right-0 h-[2px] bg-surface-container-highest -translate-y-1/2 z-0"></div>
+<!-- Active Progress Line -->
+<div class="absolute top-1/2 left-0 w-[50%] h-[2px] bg-primary-container -translate-y-1/2 z-0 transition-all duration-700"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center gap-3 group">
+<div class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center border-4 border-surface ring-2 ring-primary-container">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-xs font-bold text-primary-container uppercase tracking-widest">1 Creada</span>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center gap-3 group">
+<div class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center border-4 border-surface ring-2 ring-primary-container">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">manufacturing</span>
+</div>
+<span class="text-xs font-bold text-primary-container uppercase tracking-widest">2 Preparada</span>
+</div>
+<!-- Step 3 (Current) -->
+<div class="relative z-10 flex flex-col items-center gap-3 group">
+<div class="w-10 h-10 rounded-full bg-white text-primary-container flex items-center justify-center border-4 border-primary-container ring-2 ring-primary-container/20 animate-pulse">
+<span class="material-symbols-outlined text-lg">science</span>
+</div>
+<span class="text-xs font-bold text-primary-container uppercase tracking-widest">3 Prueba</span>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center gap-3 group">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-outline-variant flex items-center justify-center border-4 border-surface">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+</div>
+<span class="text-xs font-bold text-outline uppercase tracking-widest">4 Lanzada</span>
+</div>
+</div>
+</section>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column (Wide) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Card 1: Información General -->
+<section class="bg-surface-container-lowest rounded-lg overflow-hidden border-l-4 border-primary-container shadow-sm">
+<div class="px-8 py-6 border-b border-surface-container-low flex items-center justify-between">
+<h3 class="text-sm font-black text-primary-container uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container/60">info</span>
+                                Información General
+                            </h3>
+</div>
+<div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Creator Analyst</p>
+<p class="text-base font-semibold text-on-surface">Dr. Alejandro Vargas</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Requesting Area</p>
+<p class="text-base font-semibold text-on-surface">Marketing Digital &amp; Estrategia</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Associated Client</p>
+<p class="text-base font-semibold text-on-surface">Banco Corporativo Nacional (BCN)</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Dates and Time</p>
+<p class="text-base font-semibold text-on-surface">Oct 12, 2026 — 14:00 GMT-5</p>
+</div>
+</div>
+</section>
+<!-- Card 2: Construcción -->
+<section class="bg-surface-container-lowest rounded-lg overflow-hidden border-l-4 border-on-secondary-fixed-variant shadow-sm">
+<div class="px-8 py-6 border-b border-surface-container-low">
+<h3 class="text-sm font-black text-primary-container uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container/60">architecture</span>
+                                Construcción
+                            </h3>
+</div>
+<div class="p-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Mask/Sender</p>
+<code class="px-2 py-1 bg-surface-container text-primary-container text-xs font-mono rounded">POLICOM_OFFICIAL</code>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">COM ID</p>
+<p class="text-base font-semibold text-on-surface">#CM-8822-XP</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Type</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant text-sm">mail</span>
+<p class="text-base font-semibold text-on-surface">Email Marketing</p>
+</div>
+</div>
+</div>
+<div class="space-y-6 pt-6 border-t border-surface-container-low">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Target Segment</p>
+<p class="text-sm text-on-surface leading-relaxed">Premium Cardholders (Tier 1) - Activity in last 30 days - High Liquidity Profile.</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Subject Line</p>
+<p class="text-lg font-bold text-primary-container">Exclusividad BCN: Su nueva invitación a Capital Elite le espera</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Card 3: Recursos -->
+<section class="bg-surface-container-lowest rounded-lg overflow-hidden border-l-4 border-tertiary-fixed-dim shadow-sm">
+<div class="px-8 py-6 border-b border-surface-container-low">
+<h3 class="text-sm font-black text-primary-container uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container/60">attachment</span>
+                                Recursos
+                            </h3>
+</div>
+<div class="divide-y divide-surface-container-low">
+<!-- Resource Row 1 -->
+<div class="p-6 flex items-center justify-between hover:bg-surface-container-lowest transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-on-primary-fixed-variant/5 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">image</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">promo.jpg</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Image Content (2.4 MB)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-primary-container hover:bg-primary-fixed/50 rounded transition-colors" title="Download">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<!-- Resource Row 2 -->
+<div class="p-6 flex items-center justify-between hover:bg-surface-container-lowest transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-on-tertiary-fixed-variant/5 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">table_chart</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">base_datos.csv</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Customer Base (4.8 MB)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded transition-colors" title="Refresh/Update">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+<button class="p-2 text-primary-container hover:bg-primary-fixed/50 rounded transition-colors" title="Download">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (Admin Command Center) -->
+<div class="lg:col-span-4 space-y-8">
+<aside class="sticky top-24">
+<!-- Action Card -->
+<div class="bg-primary-container text-on-primary p-8 rounded shadow-2xl shadow-primary-container/40 relative overflow-hidden">
+<!-- Visual Texture -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<h3 class="text-xs font-black uppercase tracking-[0.2em] mb-6 border-b border-white/10 pb-4">Command Center</h3>
+<div class="space-y-8">
+<!-- Button 1 -->
+<button class="w-full flex items-center justify-between px-4 py-4 bg-white/10 hover:bg-white/20 text-white rounded font-bold text-sm transition-all border border-white/10">
+<span>Crear Plantilla en Sistema</span>
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<!-- Input & Button Group -->
+<div class="space-y-3">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-primary-container/80">Envío de Prueba</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-white/5 border border-white/10 focus:ring-1 focus:ring-white/40 text-white placeholder-white/40 text-sm px-4 py-2.5 rounded" placeholder="Email prueba" type="email"/>
+<button class="px-4 bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed-dim transition-colors rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+<div class="pt-6 border-t border-white/10">
+<p class="text-[10px] text-on-primary-container mb-4 italic leading-relaxed">Nota: Una vez aprobado, el envío masivo se programará automáticamente para la fecha indicada en Información General.</p>
+<!-- Primary CTA -->
+<button class="w-full py-5 bg-white text-primary-container font-black uppercase tracking-widest text-xs hover:bg-blue-50 transition-all shadow-xl active:scale-[0.97]">
+                                        Aprobar y Lanzar Campaña Masiva
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Secondary Info card -->
+<div class="mt-8 p-6 bg-surface-container-high rounded border border-outline-variant/20">
+<h4 class="text-xs font-bold text-primary-container uppercase tracking-widest mb-4">Activity Log</h4>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container mt-1.5"></div>
+<div>
+<p class="text-xs font-bold">Base de datos cargada</p>
+<p class="text-[10px] text-on-surface-variant">Today, 09:12 AM</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container mt-1.5"></div>
+<div>
+<p class="text-xs font-bold">Validación de sender OK</p>
+<p class="text-[10px] text-on-surface-variant">Yesterday, 04:45 PM</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+<!-- Background Decoration -->
+<div class="fixed inset-0 -z-50 opacity-[0.03] pointer-events-none overflow-hidden">
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-primary-container to-transparent rounded-full -mr-[400px] -mt-[400px] blur-[120px]"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-secondary-container to-transparent rounded-full -ml-[300px] -mb-[300px] blur-[100px]"></div>
+</div>
+</body></html>
